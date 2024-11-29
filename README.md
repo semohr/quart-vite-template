@@ -4,12 +4,23 @@ An opinionated template for building web applications with [Vite](https://vitejs
 
 This template is designed to provide a starting point for building web applications with Vite and Quart. It includes a basic project structure, configuration, and example code to help you get started.
 
+```sh
+gh repo create <new-repo-name> --template=semohr/quart-vite-template
+```
+
 **(Work in progress)**
 
 ## Features
 
-- Docker images for development and production included
-- Scripts for common actions, like creating a new python package
+- Python
+    - Hosting vite files
+    - Logging
+    - Testing
+- Javascript
+    - Vite
+- Docker
+    - Dev environment 
+    - Production environment
 
 ## The template in-depth
 
@@ -45,20 +56,24 @@ docker-compose -f docker/docker-compose.dev.yml up
 docker-compose -f docker/docker-compose.prod.yml up
 ```
 
-
 ### Workflows
 
 We include a few common workflows to ensure code quality and consistency from the start.
 
 **`.github/workflows/python.yml`**
 
-This workflow runs whenever a file in the `server` folder is modified. It runs [ruff]() to check for linting errors and runs the tests defined in the `server/tests` folder.
+This workflow runs whenever a file in the `server` folder is modified. It runs [ruff] to check for linting errors and runs all python tests with [pytest].
 
 **`.github/workflows/frontend.yml`**
 
-This workflow runs whenever a file in the `frontend` folder is modified. It runs [eslint]() to check for linting errors and runs the tests defined in the `frontend/tests` folder.
+This workflow runs whenever a file in the `frontend` folder is modified. It runs [eslint] to check for linting errors and runs all js tests with [vitest].
 
 
 ### TODOs:
 
 Docker setup
+
+
+
+[ruff]: https://docs.astral.sh/ruff/
+[pytest]: https://docs.pytest.org/

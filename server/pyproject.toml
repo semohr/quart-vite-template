@@ -17,7 +17,6 @@ build-backend = "hatchling.build"
 [tool.hatch.build.targets.wheel]
 packages = ["src"]
 
-
 [tool.ruff]
 exclude = ["*tests*"]
 include = ["pyproject.toml", "src/**/*.py"]
@@ -41,10 +40,9 @@ fixable = ["ALL"]
 convention = "numpy"
 
 [tool.pytest.ini_options]
-addopts = ["--import-mode=importlib", "--cov=beets_flask"]
+addopts = ["--import-mode=importlib", "--cov=."]
 filterwarnings = [
     "error",
-    "ignore::sqlalchemy.exc.SAWarning",
     "ignore::DeprecationWarning",
 ]
 pythonpath = ["."]
