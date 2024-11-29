@@ -26,9 +26,9 @@ jobs:
                   pip install .[dev,test]
             - name: Check style with Ruff
               run: |
-                  cd ./backend
+                  cd ./server
                   ruff check --output-format=github .
             - name: Test with pytest
               run: |
-                  cd ./backend
+                  cd ./server
                   coverage run -m pytest -v -s
