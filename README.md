@@ -1,7 +1,5 @@
 # Quart & Vite template
 
-An opinionated template for building web applications with [Vite](https://vitejs.dev/) and hosting them with [Quart](https://github.com/pallets/quart).
-
 This template is designed to provide a starting point for building web applications with Vite and Quart. It includes a basic project structure, configuration, and example code to help you get started.
 
 ```sh
@@ -21,29 +19,30 @@ gh repo create <new-repo-name> --template=semohr/quart-vite-template
 - Docker
     - Dev environment 
     - Production environment
+- Workflows
 
 ## The template in-depth
 
 ### Frontend (vite)
 
-We include a vite app in the `frontend` folder. This app is a basic example of a web application with a single page and a few components.
+We include a [vite] app in the `frontend` folder using (?framework?).This app is a basic example of a web application with a single page and a few components.
 
 **Included libraries:**
 
-- [typescript](https://www.typescriptlang.org/) for type-checking
-- [eslint](https://eslint.org/) for linting, formatting and enforcing code style
-- [vitest](https://vitest.dev/) for testing
+- [typescript] for type-checked javascript 
+- [eslint] for linting, formatting and enforcing code style
+- [vitest] for testing
 
 ### Server (quart)
 
-The server application is located in the `server` folder. It is a basic Quart app with a single route that serves the frontend app and some example endpoints. The server is configured to serve the frontend app from the `frontend/dist` folder.
+The server application is located in the `server` folder. It is a basic [quart] app which serves the frontend app and has some exemplary endpoints. 
 
 **Included libraries:**
 
-- [ruff](https://docs.astral.sh/ruff/) for linting, formatting and enforcing code style
-- [pytest](https://docs.pytest.org/en/6.2.x/) for testing
+- [ruff] for linting, formatting and enforcing common python code style
+- [pytest] for testing
 
-### Docker
+### Containerization (docker)
 
 This template includes Docker images for development and production. The `docker` folder includes a Dockerfile with multi-stage builds for both environments. Feel free to edit it if you need to add dependencies or change the configuration.
 
@@ -58,7 +57,7 @@ docker-compose -f docker/docker-compose.prod.yml up
 
 ### Workflows
 
-We include a few common workflows to ensure code quality and consistency from the start.
+We include a few common workflows to ensure code quality and consistency from the start!
 
 **`.github/workflows/python.yml`**
 
@@ -68,12 +67,19 @@ This workflow runs whenever a file in the `server` folder is modified. It runs [
 
 This workflow runs whenever a file in the `frontend` folder is modified. It runs [eslint] to check for linting errors and runs all js tests with [vitest].
 
-
 ### TODOs:
 
-Docker setup
+- Add frontend files or script to create vite frontend
 
+- Add logging setup
+- Add starter configuration (via classes) for quart
+- Add tests for frontend route 
 
+- Test Docker setup
+- Implement uvicorn[standard] or hypercorn for production environment (docker)
 
 [ruff]: https://docs.astral.sh/ruff/
 [pytest]: https://docs.pytest.org/
+[typescript]: https://www.typescriptlang.org/
+[vite]: https://vitest.dev/
+[eslint]: https://eslint.org/
