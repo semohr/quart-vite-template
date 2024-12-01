@@ -16,6 +16,8 @@ node_modules
 dist
 dist-ssr
 *.local
+*dump.rdb
+.vite
 
 # Editor directories and files
 .vscode/*
