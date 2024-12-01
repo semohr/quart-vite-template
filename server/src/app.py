@@ -34,11 +34,6 @@ def create_app():
     # TODO: load config
     # app.config.from_object(switch[mode])
 
-    # TODO:
-    # CORS needed for Dev so vite can talk to the backend
-    # if app.config["DEBUG"]:
-    #     cors(app)
-
     # Setup all routes
     from .routes import api_bp
 
