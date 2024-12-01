@@ -63,20 +63,25 @@ We include a few common workflows to ensure code quality and consistency from th
 
 This workflow runs whenever a file in the `server` folder is modified. It runs [ruff] to check for linting errors and runs all python tests with [pytest].
 
-**`.github/workflows/frontend.yml`**
 
-This workflow runs whenever a file in the `frontend` folder is modified. It runs [eslint] to check for linting errors and runs all js tests with [vitest].
+### Renaming the python package
+
+Currently, we simply call the template python "package".
+This is hard coded in several places, and needs to be replaced:
+
+```
+/backend/package/ # folder name
+/backend/package/redis/launch_redis_workers.py
+/backend/package/pyporject.toml # multiple times
+/docker/entrypoint.*.sh
+```
 
 ### TODOs:
 
-- Add frontend files or script to create vite frontend
-
-- Add logging setup
 - Add starter configuration (via classes) for quart
 - Add tests for frontend route 
-
-- Test Docker setup
-- Implement uvicorn[standard] or hypercorn for production environment (docker)
+- Test Docker production setup
+- Vitest setup
 
 [ruff]: https://docs.astral.sh/ruff/
 [pytest]: https://docs.pytest.org/

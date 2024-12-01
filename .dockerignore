@@ -1,0 +1,3 @@
+# Manually include what is needed only to build the image
+# This ensures a clean build and smaller image size
+# TODO

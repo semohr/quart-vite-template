@@ -17,7 +17,7 @@ function App() {
                     <img src={reactLogo} className="logo react" alt="React logo" />
                 </a>
                 <a href="https://quart.palletsprojects.com" target="_blank">
-                    <img src={quartLogo} className="logo react" alt="Quart logo" />
+                    <img src={quartLogo} className="logo" alt="Quart logo" />
                 </a>
             </div>
             <h1>Vite + React + Quart</h1>

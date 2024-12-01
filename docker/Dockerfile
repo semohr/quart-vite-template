@@ -22,9 +22,9 @@ RUN --mount=type=cache,target=/var/cache/apk \
     shadow
 
 # Install our package (server)
-COPY ./server /repo/server
+COPY ./backend /repo/backend
 COPY ./README.md /repo/README.md
-WORKDIR /repo/server
+WORKDIR /repo/backend
 RUN --mount=type=cache,target=/root/.cache/pip \
     pip install .
 
@@ -38,7 +38,7 @@ RUN corepack enable && corepack prepare pnpm@9.x.x --activate
 FROM deps AS dev
 
 # relies on mounting this volume
-WORKDIR /repo
+WORKDIR /repo/docker
 USER root
 ENTRYPOINT ["/bin/sh", "-c", "./entrypoint.permissions.sh && su appuser -c ./entrypoint.dev.sh"]
 
@@ -69,9 +69,10 @@ ENV IB_SERVER_CONFIG="prod"
 WORKDIR /repo
 COPY --from=deps /repo /repo
 COPY --from=build /repo/frontend/dist /repo/frontend/dist
-COPY entrypoint.sh .
-COPY entrypoint.permissions.sh .
+COPY ./docker/entrypoint.prod.sh .
+COPY ./docker/entrypoint.permissions.sh .
 RUN chown -R appuser:appuser /repo
 
+WORKDIR /repo/docker
 USER root
-ENTRYPOINT ["/bin/sh", "-c", "./entrypoint.permissions.sh && su appuser -c ./entrypoint.prod.sh"]
+ENTRYPOINT ["/bin/sh", "-c", "./docker/entrypoint.permissions.sh && su appuser -c ./docker/entrypoint.prod.sh"]

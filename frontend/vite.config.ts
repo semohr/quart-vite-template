@@ -18,7 +18,7 @@ export default defineConfig({
          */
         proxy: {
             "^/api_v1/.*": {
-                target: "https://github.com/",
+                target: "http://localhost:80",
                 changeOrigin: true,
             },
         },

@@ -16,7 +16,8 @@ cd /repo/server
 
 redis-server --daemonize yes
 
-python ./launch_redis_workers.py
+NUM_REDIS_WORKERS=4 python ./package/redis/launch_redis_workers.py
 
 redis-cli FLUSHALL
 
+./entrypoint.backend.prod.sh &

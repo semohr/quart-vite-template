@@ -3,14 +3,14 @@ services:
         container_name: vite-quart-example
         hostname: vite-container
         build:
-            context: .
-            dockerfile: Dockerfile
+            context: ..
+            dockerfile: docker/Dockerfile
             target: dev
         image: vite-quart-example
         restart: unless-stopped
         ports:
-            - "5001:5001" # production and backend
             - "5173:5173" # for vite dev server
+            - "5001:80" # for quart
         environment:
             # 502 is default on macos, 1000 on linux
             USER_ID: 1000
@@ -19,7 +19,7 @@ services:
             # we put the beets and our vite-quart-example config into the /config directory
             # create these folders before starting the container! otherwise you might
             # get permission issues.
-            - ./config/:/config
+            - ../local_data/config/:/config
 
             # for development. (disable if target is `prod`)
-            - ./:/repo/
+            - ../:/repo/
