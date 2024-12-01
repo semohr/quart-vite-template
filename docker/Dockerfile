@@ -64,7 +64,7 @@ RUN pnpm run build
 
 FROM deps AS prod
 
-ENV IB_SERVER_CONFIG="prod"
+ENV PACKAGE_SERVER_CONFIG="prod"
 
 WORKDIR /repo
 COPY --from=deps /repo /repo

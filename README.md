@@ -14,6 +14,7 @@ gh repo create <new-repo-name> --template=semohr/quart-vite-template
     - Hosting vite files
     - Logging
     - Testing
+    - Redis
 - Javascript
     - Vite
 - Docker
@@ -33,9 +34,9 @@ We include a [vite] app in the `frontend` folder using (?framework?).This app is
 - [eslint] for linting, formatting and enforcing code style
 - [vitest] for testing
 
-### Server (quart)
+### Backend Server (quart)
 
-The server application is located in the `server` folder. It is a basic [quart] app which serves the frontend app and has some exemplary endpoints. 
+The server application is located in the `backend` folder. It is a basic [quart] app which serves the frontend app and has some exemplary endpoints. 
 
 **Included libraries:**
 
@@ -59,9 +60,9 @@ docker-compose -f docker/docker-compose.prod.yml up
 
 We include a few common workflows to ensure code quality and consistency from the start!
 
-**`.github/workflows/python.yml`**
+**`.github/workflows/backend.yml`**
 
-This workflow runs whenever a file in the `server` folder is modified. It runs [ruff] to check for linting errors and runs all python tests with [pytest].
+This workflow runs whenever a file in the `backend` folder is modified. It runs [ruff] to check for linting errors and runs all python tests with [pytest].
 
 
 ### Renaming the python package
